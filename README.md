@@ -37,10 +37,15 @@ Test Utils - files helps to convert the Json parsed Object into JSonObject and J
       <td><b>1.8</b></td>
       <td><b>Programming languages</b></td>
     </tr>
-    <tr>
-      <td><b>TestNG</b></td>
-      <td><b>7.4.0</b></td>
-      <td><b>Test Runner to execute suite</b></td>
+ <tr>
+      <td><b>Cucumber Junit</b></td>
+      <td><b>7.11.0</b></td>
+      <td><b>Create & Parse JSON Files for API</b></td>
+    </tr>
+	   <tr>
+      <td><b>Cucumber Java</b></td>
+      <td><b>7.11.0</b></td>
+      <td><b>To have cucumber for Java</b></td>
     </tr>
     <tr>
       <td><b>JSON Simple</b></td>
@@ -50,12 +55,12 @@ Test Utils - files helps to convert the Json parsed Object into JSonObject and J
     <tr>
       <td><b>Junit </b></td>
       <td><b>4.12</b></td>
-      <td><b>To do compile and execute</b></td>
+      <td><b>To do compile and execute using Junit</b></td>
     </tr>
       <tr>
-      <td><b>Extent Grasshopper</b></td>
+      <td><b>extentreports-cucumber7-adapter</b></td>
       <td><b>1.9.2</b></td>
-      <td><b>To create extent reports for cucumber</b></td>
+      <td><b>To create extent reports for cucumber project</b></td>
     </tr>
    </tbody>
 </table>
@@ -65,42 +70,40 @@ Test Utils - files helps to convert the Json parsed Object into JSonObject and J
 <ul>
 <li>Created a Maven project added dependencies for JSon-Simple, TestNG, Cucumber, Extend Report Adapter for Cucumber in POM. XML</li>
 <li>Folder Structure  :</li>
-<li>Under src/testd/resources->testdata->added "TeamRCBResponse" json File</li>
-<li>Under src/main/java->com.iplteam->Created Interface "ITeamVaidator" class</li>
-<li>Under src/main/java->com.iplteam->Created implementation class for IPLJsonService  "TeamValidatorImpl" class</li>
-<li>"IPLJsonServiceImpl" class has reusable methods listed below:</li>
+<li>Under src/main/java/DesignImplementation ->Created Interface "ITeamVaidator" and "TeamValidatorImpl" class</li>
+<li>Under src/main/java/Runner->Created runner class for execution </li>
+<li>Under src/main/java/StepDefinitions->Created step Definition classes</li>
+<li>Under src/main/resources->Created cucumber.properties file and added "TeamRCBResponse" json File</li>
+<li>Under src/test/java/Features->Created feature files </li>	
+<li>Under src/test/resources->Created extent.properties file </li>	
+<li>"TeamValidatorImpl" class has reusable methods listed below:</li>
 	<ul>
-	<li>readJsonFile(String fileName)  - Read the JSON file,parse and get JSONObject</li>
-	<li>checkForeignPlayers(int foreignCount) - Checks how many Foreign Players from JSON Array</li>
-    <li>checkWicketKeeperPlayers(int wicketKeeperCount) - Checks how many Wicket Keeper from JSON Array</li>
+	<li>readJsonSchema(String fileName)  - Read the JSON file,parse and get JSONObject</li>
+	<li>findForeignPlayers(int foreignCount) - Checks how many Foreign Players from JSON Array</li>
+        <li>findWicketKeeperPlayers(int wicketKeeperCount) - Checks how many Wicket Keeper from JSON Array</li>
 	</ul>
 	
-<h2>Brute Force Approach</h2>
-<li>Under src/main/java->"com.vanillascript" package-> has "ReadRCBJsonFile" class </li>
-<li>"ReadRCBJsonFile" class has step by step approach in reading the Json file and validating how many foreign players and wicketkeeper :</li>
+
 	
-<h2>TestNG Execution</h2>
-<li>Under src/test/java->"ipl.testcases" package-> has testcases based on testNG execution class</li>
-<li>"TC001"Positive Test Case - To Validate the team has only 4 foreign players:</li>
-<li>"TC002"Positive Test Case - To Validate there is at least 1 wicket keeper:</li>
-<li>"TC003"Negative Test Case - Check the Negative input for RCB Team :</li>
-<li>testng.xml --> contains parameter will  pass the foreignplayer  and wicketkeeper method to check count</li>
-<li>Report-->/test-output/emailable-report.html</li>
+<h2>Cucumber Runner Execution</h2>
+<li>Under src/main/java/Runner->"CucumberTestRunner.java" has cucumber options which will run all the feature files</li>
+<li>Run the Cucucmber runner file as Junit and to execute and generate the report</li>
+<li>Report-->/test-output/RCBResultReport/Report/Results.html</li>	
+<li>Configured "extent.properties" to capture the extent report in test-output folder to have different folder with timeof execution captured </li>
 
 
-<h2>Cucumber Execution</h2>
-<li>Under src/main/java->"com.cumcumberstep" package-> Created "StepDefinitions" for each action</li>
-<li>Under src/main/java->"com.cucumberrunner" package-> Created "RunCucumberTest" for running each feature</li>
-<li>Under src/test/java->"features" package-> has testcases created as a feature file using gherkin language</li>
+<h2>Feature file Execution</h2>
+<li>Under src/test/java->"features" package-> has feature file created using gherkin language which will have run as feature file option to execute</li>
+<li>"ValidateRCBPlayersCountry" Positive Test Case - To Validate the team has only 4 foreign players:</li>
+<li>"ValidateRCBRoles" Positive Test Case - To Validate there is at least 1 wicket keeper:</li>
 
-<li>"Test001"Positive Test Case - To Validate the team has only 4 foreign players:</li>
-<li>"Test002"Positive Test Case - To Validate there is at least 1 wicket keeper:</li>
-
-<li>Report-->/target/cucumber-results-feature-overview.html</li>
-<li>In Console Report link will be generated -->https://reports.cucumber.io/reports/{id}</li>
+<h2>Report Generation</h2>
+<li>Report-->/test-output/RCBResultReport/Report/Results.html</li>	
+<li>Configured "extent.properties" to capture the extent report in test-output folder to have different folder with timeof execution captured </li>
+	
 
 <h2>Command Line Execution</h2>
-<li>Navigate to project directory(./TestVagrant_Assessment) and execute "mvn clean test"</li>
+<li>Navigate to project directory(./TestVagrantAPI_Assessment) and execute "mvn clean test"</li>
 <li>Note: make sure Java and maven are installed in the machine</li>
 </ul> 
 
