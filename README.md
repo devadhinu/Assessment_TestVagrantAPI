@@ -1,6 +1,6 @@
 This Framework is Java based code using Rest Assured Library for parsing the Json data and identifying IPL players details. Based on the requirement.
 
-# TestVagrant_Assignment
+# TestVagrantAPI_Assessment
 
 <h2>Problem Statement:</h2>
 <ul>
