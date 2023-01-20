@@ -1,19 +1,5 @@
 This Framework is Java based code using Rest Assured Library for parsing the Json data and identifying IPL players details. Based on the requirement.
 
-| Dependency       | Version | Feature                           |
-|------------------|---------|-----------------------------------|
-| Cucumber JUnit   | 6.9.1   | Shows the Test progress           |
-| Json Simple      | 1.1.1   | For parsing the Json file         | 
-| Cucumber Java    | 6.9.1   | Execute Steps in the feature file |
-
-
-Features
-1. We have validated whether the RCB team have 4 foreign players
-2. We have validated whether the RCB team have 1 wicket keeper
-
-
-Test Utils - files helps to convert the Json parsed Object into JSonObject and JSonArray
-
 # TestVagrant_Assignment
 
 <h2>Problem Statement:</h2>
@@ -105,6 +91,11 @@ Test Utils - files helps to convert the Json parsed Object into JSonObject and J
 <h2>Command Line Execution</h2>
 <li>Navigate to project directory(./TestVagrantAPI_Assessment) and execute "mvn clean test"</li>
 <li>Note: make sure Java and maven are installed in the machine</li>
+</ul> 
+	
+<h2>Scope of further optimisation</h2>
+<li>To have a pojo class created or using LOmbok Annotatons to get the values from the JSON intead of using simple JSONObject</li>
+<li>Note: Made use of JSONObject as the response body is provided</li>
 </ul> 
 
 
